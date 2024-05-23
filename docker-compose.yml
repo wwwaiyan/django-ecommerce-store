@@ -1,0 +1,47 @@
+version: '3.3'
+
+services:
+  eco:
+    container_name: eco-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/django-docker
+      - static:/django-docker/static
+      - media:/django-docker/Storage
+    env_file:
+      - ./env/db.env
+    ports:
+      - "9000:9000"
+    restart: always
+      
+  # api_nginx:
+  #   container_name: eco-nginx
+  #   build:
+  #     context: ./api_nginx
+  #   volumes:
+  #     - static:/static
+  #     - media:/Storage
+  #   restart: always
+  #   ports:
+  #     - 9000:9000
+  #   depends_on:
+  #     - eco
+  #     - db
+  db:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: ecouser
+      POSTGRES_PASSWORD: eco@pa$$
+      POSTGRES_DB: ecodb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  static:
+  media:
+  postgres_data:
