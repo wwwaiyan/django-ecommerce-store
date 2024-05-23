@@ -3,9 +3,7 @@ version: '3.3'
 services:
   eco:
     container_name: eco-api
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ecr_repo_uri
     volumes:
       - ./:/django-docker
       - static:/django-docker/static
@@ -13,7 +11,7 @@ services:
     env_file:
       - ./env/db.env
     ports:
-      - "9000:9000"
+      - "80:80"
     restart: always
       
   # api_nginx:

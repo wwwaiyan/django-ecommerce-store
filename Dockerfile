@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM public.ecr.aws/docker/library/python:3.9.19-alpine3.20
 ENV PYTHONBUFFERED 1
 RUN mkdir /django-docker
 WORKDIR /django-docker
