@@ -17,7 +17,9 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push $REPOSITORY_URI:latest
+      #debug for file path not found
+      - ls -alh
       # - docker push $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
 artifacts:
   files:
-    - appspec.yml
+    - ./appspec.yml
