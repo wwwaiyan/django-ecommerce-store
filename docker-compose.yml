@@ -30,10 +30,8 @@ services:
   db:
     image: postgres:latest
     container_name: postgres_container
-    environment:
-      POSTGRES_USER: ecouser
-      POSTGRES_PASSWORD: eco@pa$$
-      POSTGRES_DB: ecodb
+    env_file:
+      - ./env/pg.env
     ports:
       - "5432:5432"
     volumes:
