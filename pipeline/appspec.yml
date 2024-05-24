@@ -3,10 +3,11 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "${ECS_TASK_DEFINITION_ARN}"
+        TaskDefinition: "__TASK_DEFINITION__"
         LoadBalancerInfo:
-          ContainerName: "${CONTAINER_NAME}"
-          ContainerPort: 80
+          ContainerName: "__CONTAINER_NAME__"
+          ContainerPort: __CONTAINER_PORT__
+
       #   PlatformVersion: "LATEST"
       #   NetworkConfiguration:
       #     AwsvpcConfiguration:
