@@ -5,4 +5,4 @@ fi
 sed -e "s|__TASK_DEFINITION__|$ECS_TASK_DEFINITION_ARN|g" \
     -e "s|__CONTAINER_NAME__|$CONTAINER_NAME|g" \
     -e "s|__CONTAINER_PORT__|$CONTAINER_PORT|g" \
-    appspec.yml.template > pipeline/appspec.yml
+    pipeline/appspec.yml.template > pipeline/appspec.yml
