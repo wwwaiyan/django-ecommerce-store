@@ -7,5 +7,5 @@ COPY entrypoint.sh /django-docker/
 RUN pip install -r requirements.txt
 COPY . /django-docker
 RUN chmod +x entrypoint.sh
-EXPOSE 9000
+EXPOSE 80
 ENTRYPOINT [ "sh", "entrypoint.sh" ]
