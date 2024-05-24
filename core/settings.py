@@ -3,7 +3,6 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 SECRET_KEY = 'django-insecure-&!4%-vjbqun^7idhr9ov$3*!233xczz4zt4i1bj_x&ur14makw'
 
 DEBUG = True
@@ -63,28 +62,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 AUTH_USER_MODEL = 'accounts.Account'
 
-
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'eshop',
-#         'USER' : 'omarreda',
-#         'PASSWORD' : os.environ.get('DB_PASS'),
-#         'HOST' : 'e-shop.cmesgttozqee.us-west-2.rds.amazonaws.com',
-#         'PORT' : '5432',
-#     }
-# }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 POSTGRES_HOST = os.environ.get('POSTGRES_HOST')
 POSTGRES_USER = os.environ.get('POSTGRES_USER')
 POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
@@ -103,8 +81,6 @@ DATABASES = {
 }
 
 # Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -120,10 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -134,53 +107,48 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = '/static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     BASE_DIR / 'core/static'
 ]
 
-# MEDIA
+# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+# Use django-storages and boto3 for storing static and media files on S3
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# AWS settings
+# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_QUERYSTRING_AUTH = False
+
+# Static files settings
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
 
-
 PASSWORD_RESET_TIMEOUT_DAYS = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST= 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
-EMAIL_PORT= 587 
+EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-# AWS_QUERYSTRING_AUTH = False
-
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-
-# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-
-# AWS_STORAGE_BUCKET_NAME = 'e--shop-bucket'
-
-if os.getcwd() == '/app' :
+if os.getcwd() == '/app':
     DEBUG = False
