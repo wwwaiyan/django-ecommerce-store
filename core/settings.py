@@ -142,7 +142,10 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
-
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://d1yf7g2d074s3z.cloudfront.net'
+# ]
+CSRF_TRUSTED_ORIGINS = ["*"]
 PASSWORD_RESET_TIMEOUT_DAYS = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
