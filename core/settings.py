@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-&!4%-vjbqun^7idhr9ov$3*!233xczz4zt4i1bj_x&ur14makw
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = ['*']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -145,7 +145,6 @@ MESSAGE_TAGS = {
 # CSRF_TRUSTED_ORIGINS = [
 #     'https://d1yf7g2d074s3z.cloudfront.net'
 # ]
-CSRF_TRUSTED_ORIGINS = ["*"]
 PASSWORD_RESET_TIMEOUT_DAYS = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
