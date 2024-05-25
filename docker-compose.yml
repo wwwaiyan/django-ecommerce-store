@@ -10,7 +10,7 @@ services:
       - static:/django-docker/static
       - media:/django-docker/Storage
     env_file:
-      - ./env/db.env
+      - ./env/django.env
     ports:
       - "80:80"
     restart: always
