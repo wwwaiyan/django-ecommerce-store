@@ -1,4 +1,4 @@
-bind = "0.0.0.0:9000"
+bind = "0.0.0.0:80"
 workers = 4
 worker_connections = 1024
 threads = 4

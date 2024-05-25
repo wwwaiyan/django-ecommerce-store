@@ -3,7 +3,8 @@ version: '3.3'
 services:
   eco:
     container_name: eco-api
-    image: ecr_repo_uri
+    build:
+      context: .
     volumes:
       - ./:/django-docker
       - static:/django-docker/static
@@ -31,7 +32,7 @@ services:
     image: postgres:latest
     container_name: postgres_container
     env_file:
-      - ./env/pg.env
+      - ./env/db.env
     ports:
       - "5432:5432"
     volumes:
