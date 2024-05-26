@@ -31,14 +31,13 @@ Here are some screenshots of the application:
 
 django admin dashboard
 
-![https://t9018296322.p.clickup-attachments.com/t9018296322/c7ecb7c8-b608-46d4-ad9d-e6c4f7d24bb7/image.png](https://t9018296322.p.clickup-attachments.com/t9018296322/c7ecb7c8-b608-46d4-ad9d-e6c4f7d24bb7/image.png)
-
-![https://t9018296322.p.clickup-attachments.com/t9018296322/c48636fe-3bd2-4d61-93d1-2369802b13dc/image.png](https://t9018296322.p.clickup-attachments.com/t9018296322/c48636fe-3bd2-4d61-93d1-2369802b13dc/image.png)
+![](./screenshots/1.png)
+![](./screenshots/2.png)
 
 Normal user
 
-![https://t9018296322.p.clickup-attachments.com/t9018296322/501d461f-4519-4c83-aee2-15207e0e5990/image.png](https://t9018296322.p.clickup-attachments.com/t9018296322/501d461f-4519-4c83-aee2-15207e0e5990/image.png)
+![](./screenshots/3.png)
 
-![https://t9018296322.p.clickup-attachments.com/t9018296322/85d8fd64-8358-407a-8708-a6adcf02586a/image.png](https://t9018296322.p.clickup-attachments.com/t9018296322/85d8fd64-8358-407a-8708-a6adcf02586a/image.png)
+![](./screenshots/4.png)
 
-![https://t9018296322.p.clickup-attachments.com/t9018296322/a856d351-3cbb-428d-9040-39691cdfdc94/image.png](https://t9018296322.p.clickup-attachments.com/t9018296322/a856d351-3cbb-428d-9040-39691cdfdc94/image.png)
+![](./screenshots/5.png)
