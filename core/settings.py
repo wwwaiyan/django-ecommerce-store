@@ -151,10 +151,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'email-smtp.us-west-2.amazonaws.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_HOST_USER = 'AKIAU6EHO3EUJ3MBASLQ'
-EMAIL_HOST_PASSWORD = 'BMYGliCrXS8DdJCn4z3daa/4GxIswPb2qtaxrKbSaLwI'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
 
 if os.getcwd() == '/app':
     DEBUG = False
